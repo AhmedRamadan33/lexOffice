@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg pub-navbar" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg pub-navbar fixed-top" data-bs-theme="dark">
     <div class="container">
         <a class="navbar-brand" href="{{ route('public.home') }}">
             <img src="{{ asset('logo2.png') }}" alt="{{ __('app.app_name') }}">
@@ -37,6 +37,10 @@
                         <i class="bi bi-translate"></i> {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
                     </button>
                 </form>
+                <a href="{{ route('login') }}" class="pub-staff-login" title="{{ __('app.public.nav.staff_login') }}">
+                    <i class="bi bi-person-badge"></i>
+                    <span class="d-lg-none">{{ __('app.public.nav.staff_login') }}</span>
+                </a>
                 <a href="{{ route('public.client-portal') }}" class="pub-btn-gold btn-sm">
                     <i class="bi bi-box-arrow-in-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}"></i>
                     {{ __('app.public.nav.client_portal') }}

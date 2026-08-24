@@ -13,6 +13,7 @@
     --pub-radius: 1rem;
     --pub-radius-sm: 0.65rem;
     --pub-font: 'Cairo', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --pub-navbar-height: 106px;
 
     --bs-primary: var(--pub-gold);
     --bs-primary-rgb: 201, 162, 75;
@@ -40,6 +41,11 @@ body {
 
 .pub-body > main {
     flex: 1 0 auto;
+    padding-top: var(--pub-navbar-height);
+}
+
+.pub-navbar {
+    z-index: 1030;
 }
 
 a {
@@ -82,6 +88,21 @@ a {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     border-color: #fff;
+}
+
+.pub-staff-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.85rem;
+    text-decoration: none;
+    padding: 0.4rem 0.3rem;
+    transition: color 0.15s;
+}
+
+.pub-staff-login:hover {
+    color: var(--pub-gold);
 }
 
 /* ==== Navbar ==== */

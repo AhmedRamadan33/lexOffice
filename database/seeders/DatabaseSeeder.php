@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $this->call([
@@ -20,9 +17,7 @@ class DatabaseSeeder extends Seeder
             DemoUserSeeder::class,
         ]);
 
-        // Log in as the Admin so every record created below — and the activity log
-        // entries generated for them — is attributed to a real user and branch,
-        // instead of showing up as anonymous/system-generated seed data.
+    
         $admin = User::where('email', 'ahmedramadan1272022@gmail.com')->first();
         Auth::login($admin);
 

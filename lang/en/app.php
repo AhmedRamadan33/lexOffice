@@ -19,6 +19,7 @@ return [
         'settings' => 'Settings',
         'notifications' => 'Notifications',
         'activity_log' => 'Activity Log',
+        'view_site' => 'View Site',
         'logout' => 'Logout',
         'profile' => 'Profile',
         'site_content' => 'Site Content',
@@ -257,6 +258,7 @@ return [
             'stories' => 'Success Stories',
             'contact' => 'Contact',
             'client_portal' => 'Client Portal',
+            'staff_login' => 'Staff Login',
         ],
         'footer' => [
             'quick_links' => 'Quick Links',

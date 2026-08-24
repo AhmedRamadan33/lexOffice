@@ -26,7 +26,7 @@
 <body class="pub-body">
     <x-page-loader />
 
-    <nav class="navbar navbar-expand-lg pub-navbar" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg pub-navbar fixed-top" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand" href="{{ route('public.home') }}">
                 <img src="{{ asset('logo2.png') }}" alt="{{ __('app.app_name') }}">

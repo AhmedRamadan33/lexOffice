@@ -55,6 +55,9 @@
                     <div class="page-title">{{ $title }}</div>
                 </div>
                 <div class="d-flex align-items-center gap-2">
+                    <a href="{{ route('public.home') }}" target="_blank" rel="noopener" class="icon-btn" title="{{ __('app.nav.view_site') }}">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                     <form method="POST" action="{{ route('locale.update', app()->getLocale() === 'ar' ? 'en' : 'ar') }}">
                         @csrf
                         <button type="submit" class="btn btn-sm btn-outline-secondary rounded-pill px-3">

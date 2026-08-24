@@ -19,6 +19,7 @@ return [
         'settings' => 'الإعدادات',
         'notifications' => 'التنبيهات',
         'activity_log' => 'سجل النشاط',
+        'view_site' => 'زيارة الموقع',
         'logout' => 'تسجيل الخروج',
         'profile' => 'الملف الشخصي',
         'site_content' => 'محتوى الموقع',
@@ -257,6 +258,7 @@ return [
             'stories' => 'قصص نجاحنا',
             'contact' => 'تواصل معنا',
             'client_portal' => 'بوابة العميل',
+            'staff_login' => 'دخول الموظفين',
         ],
         'footer' => [
             'quick_links' => 'روابط سريعة',

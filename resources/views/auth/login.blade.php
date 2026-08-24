@@ -3,7 +3,9 @@
         <div class="card auth-card shadow-lg">
             <div class="card-body p-4 p-md-5">
                 <div class="text-center mb-4">
-                    <img src="{{ asset('logo.png') }}" alt="{{ __('app.app_name') }}" class="brand-logo-lg">
+                   <a href="{{route('public.home')}}">
+                     <img src="{{ asset('logo.png') }}" alt="{{ __('app.app_name') }}" class="brand-logo-lg">
+                   </a>
                 </div>
 
                 @if ($errors->any())
