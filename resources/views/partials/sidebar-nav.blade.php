@@ -86,4 +86,38 @@
         </a>
     </li>
     @endcan
+
+    @can('manage-settings')
+    <li class="nav-section-label mt-3 mb-2">{{ __('app.nav.site_content') }}</li>
+    <li class="nav-item">
+        <a href="{{ route('site-settings.edit') }}" class="nav-link {{ request()->routeIs('site-settings.*') ? 'active' : '' }}">
+            <span class="nav-icon"><i class="bi bi-sliders"></i></span>{{ __('app.nav.site_settings') }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('practice-areas.index') }}" class="nav-link {{ request()->routeIs('practice-areas.*') ? 'active' : '' }}">
+            <span class="nav-icon"><i class="bi bi-briefcase-fill"></i></span>{{ __('app.nav.practice_areas') }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('team-members.index') }}" class="nav-link {{ request()->routeIs('team-members.*') ? 'active' : '' }}">
+            <span class="nav-icon"><i class="bi bi-person-video3"></i></span>{{ __('app.nav.team_members') }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('testimonials.index') }}" class="nav-link {{ request()->routeIs('testimonials.*') ? 'active' : '' }}">
+            <span class="nav-icon"><i class="bi bi-chat-quote-fill"></i></span>{{ __('app.nav.testimonials') }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('success-stories.index') }}" class="nav-link {{ request()->routeIs('success-stories.*') ? 'active' : '' }}">
+            <span class="nav-icon"><i class="bi bi-trophy-fill"></i></span>{{ __('app.nav.success_stories') }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('contact-messages.index') }}" class="nav-link {{ request()->routeIs('contact-messages.*') ? 'active' : '' }}">
+            <span class="nav-icon"><i class="bi bi-envelope-fill"></i></span>{{ __('app.nav.contact_messages') }}
+        </a>
+    </li>
+    @endcan
 </ul>

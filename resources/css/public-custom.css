@@ -1,0 +1,615 @@
+/* ==== Public site design tokens ==== */
+:root {
+    --pub-navy: #0f1b33;
+    --pub-navy-deep: #0a1428;
+    --pub-navy-soft: #16233f;
+    --pub-gold: #c9a24b;
+    --pub-gold-soft: #e8d5a3;
+    --pub-ink: #1c2434;
+    --pub-muted: #8b93a7;
+    --pub-bg: #ffffff;
+    --pub-bg-alt: #f6f4ef;
+    --pub-border: #e7e2d6;
+    --pub-radius: 1rem;
+    --pub-radius-sm: 0.65rem;
+    --pub-font: 'Cairo', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --bs-primary: var(--pub-gold);
+    --bs-primary-rgb: 201, 162, 75;
+    --bs-link-color: var(--pub-gold);
+    --bs-link-hover-color: var(--pub-navy);
+    --bs-body-font-family: var(--pub-font);
+    --bs-body-color: var(--pub-ink);
+    --bs-border-radius: 0.6rem;
+    --bs-border-radius-lg: 0.85rem;
+}
+
+body {
+    font-family: var(--pub-font);
+    color: var(--pub-ink);
+    background-color: var(--pub-bg);
+}
+
+/* Sticky footer: footer always sits at the bottom of the viewport on short
+   pages, and after the content on tall pages — never floats mid-page. */
+.pub-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.pub-body > main {
+    flex: 1 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==== Buttons ==== */
+.pub-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--pub-gold);
+    color: var(--pub-navy-deep);
+    font-weight: 700;
+    padding: 0.7rem 1.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--pub-gold);
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.pub-btn-gold:hover {
+    background: var(--pub-gold-soft);
+    color: var(--pub-navy-deep);
+}
+
+.pub-btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.7rem 1.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.pub-btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* ==== Navbar ==== */
+.pub-navbar {
+    background: var(--pub-navy);
+}
+
+.pub-navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.pub-navbar .navbar-brand img {
+    height: 80px;
+    width: auto;
+}
+
+.pub-navbar .navbar-brand-text {
+    color: #fff;
+    font-weight: 800;
+    line-height: 1.1;
+    font-size: 1.05rem;
+}
+
+.pub-navbar .navbar-brand-text small {
+    display: block;
+    color: var(--pub-muted);
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.pub-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 0.5rem 0.9rem !important;
+}
+
+.pub-navbar .nav-link:hover,
+.pub-navbar .nav-link.active {
+    color: var(--pub-gold);
+}
+
+.pub-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pub-navbar .navbar-toggler-icon {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* ==== Hero ==== */
+.pub-hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--pub-navy), var(--pub-navy-deep));
+    color: #fff;
+    padding: 5.5rem 0 4.5rem;
+    overflow: hidden;
+}
+
+.pub-hero.has-image {
+    background-size: cover;
+    background-position: center;
+}
+
+.pub-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 27, 51, 0.92), rgba(10, 20, 40, 0.82));
+}
+
+.pub-hero > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.pub-hero .pub-eyebrow {
+    color: var(--pub-gold);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.pub-hero h1 {
+    font-weight: 800;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.pub-hero p.lead {
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 640px;
+}
+
+/* ==== Stats bar ==== */
+.pub-stats-bar {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(15, 27, 51, 0.08);
+    border-radius: var(--pub-radius);
+    margin-top: -3.25rem;
+    position: relative;
+    z-index: 2;
+    padding: 1.75rem 1rem;
+}
+
+.pub-stat {
+    text-align: center;
+    padding: 0.5rem 1rem;
+}
+
+.pub-stat .pub-stat-value {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--pub-navy);
+    line-height: 1.2;
+}
+
+.pub-stat .pub-stat-label {
+    color: var(--pub-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ==== Section header ==== */
+.pub-section {
+    padding: 4.5rem 0;
+}
+
+.pub-section-alt {
+    background: var(--pub-bg-alt);
+}
+
+.pub-section-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+}
+
+.pub-section-header .pub-eyebrow {
+    color: var(--pub-gold);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pub-section-header h2 {
+    font-weight: 800;
+    color: var(--pub-navy);
+    margin-top: 0.35rem;
+}
+
+.pub-section-header .pub-divider {
+    width: 56px;
+    height: 3px;
+    background: var(--pub-gold);
+    margin: 0.85rem auto 0;
+    border-radius: 2px;
+}
+
+/* ==== Service / practice-area cards ==== */
+.pub-service-card {
+    background: #fff;
+    border: 1px solid var(--pub-border);
+    border-radius: var(--pub-radius);
+    padding: 1.75rem;
+    height: 100%;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.pub-service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 27, 51, 0.1);
+    border-color: var(--pub-gold-soft);
+}
+
+.pub-service-card .pub-service-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 0.85rem;
+    background: var(--pub-navy);
+    color: var(--pub-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.pub-service-card h5 {
+    font-weight: 700;
+    color: var(--pub-navy);
+}
+
+.pub-service-card p {
+    color: var(--pub-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ==== CTA banner ==== */
+.pub-cta-banner {
+    background: linear-gradient(135deg, var(--pub-navy), var(--pub-navy-deep));
+    color: #fff;
+    border-radius: var(--pub-radius);
+    padding: 3rem 2.5rem;
+    text-align: center;
+}
+
+.pub-cta-banner h3 {
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.pub-cta-banner p {
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 1.5rem;
+}
+
+/* ==== Lawyer / team cards ==== */
+.pub-lawyer-card {
+    background: #fff;
+    border: 1px solid var(--pub-border);
+    border-radius: var(--pub-radius);
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.pub-lawyer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 27, 51, 0.1);
+}
+
+.pub-lawyer-card .pub-lawyer-photo {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    object-fit: cover;
+    background: var(--pub-navy);
+}
+
+.pub-lawyer-card .pub-lawyer-body {
+    padding: 1.1rem 1.25rem 1.35rem;
+}
+
+.pub-lawyer-card h6 {
+    font-weight: 700;
+    color: var(--pub-navy);
+    margin-bottom: 0.15rem;
+}
+
+.pub-lawyer-card .pub-lawyer-title {
+    color: var(--pub-gold);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.pub-avatar-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, var(--pub-navy), var(--pub-navy-soft));
+    color: var(--pub-gold-soft);
+    font-weight: 800;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.pub-avatar-placeholder-sm {
+    width: 48px;
+    height: 48px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    font-size: 1.1rem;
+}
+
+.pub-social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--pub-bg-alt);
+    color: var(--pub-navy);
+    margin-inline-end: 0.4rem;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.pub-social-icons a:hover {
+    background: var(--pub-gold);
+    color: var(--pub-navy-deep);
+}
+
+/* ==== Filter tabs (lawyers category) ==== */
+.pub-filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.pub-filter-tabs a {
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.88rem;
+    background: var(--pub-bg-alt);
+    color: var(--pub-ink);
+}
+
+.pub-filter-tabs a.active {
+    background: var(--pub-navy);
+    color: #fff;
+}
+
+/* ==== Testimonial cards ==== */
+.pub-testimonial-card {
+    background: #fff;
+    border: 1px solid var(--pub-border);
+    border-radius: var(--pub-radius);
+    padding: 1.75rem;
+    height: 100%;
+}
+
+.pub-testimonial-card .pub-stars {
+    color: var(--pub-gold);
+    margin-bottom: 0.75rem;
+}
+
+.pub-testimonial-card .pub-quote {
+    color: var(--pub-ink);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.pub-testimonial-card .pub-client {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pub-testimonial-card .pub-client-name {
+    font-weight: 700;
+    color: var(--pub-navy);
+    font-size: 0.92rem;
+}
+
+/* ==== Success story cards ==== */
+.pub-story-card {
+    background: #fff;
+    border: 1px solid var(--pub-border);
+    border-radius: var(--pub-radius);
+    overflow: hidden;
+    height: 100%;
+}
+
+.pub-story-card .pub-story-image {
+    height: 170px;
+    width: 100%;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--pub-navy), var(--pub-navy-soft));
+}
+
+.pub-story-card .pub-story-body {
+    padding: 1.25rem;
+}
+
+.pub-story-card .pub-story-category {
+    display: inline-block;
+    background: var(--pub-bg-alt);
+    color: var(--pub-navy);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+/* ==== Contact page ==== */
+.pub-contact-card {
+    background: #fff;
+    border: 1px solid var(--pub-border);
+    border-radius: var(--pub-radius);
+    padding: 1.5rem;
+    text-align: center;
+    height: 100%;
+}
+
+.pub-contact-card .pub-contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--pub-navy);
+    color: var(--pub-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.85rem;
+}
+
+.pub-contact-form .form-control,
+.pub-contact-form .form-select {
+    background: var(--pub-bg-alt);
+    border: 1px solid var(--pub-border);
+    border-radius: 0.6rem;
+    padding: 0.7rem 0.9rem;
+}
+
+.pub-contact-form .form-control:focus,
+.pub-contact-form .form-select:focus {
+    border-color: var(--pub-gold);
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.15);
+    background: #fff;
+}
+
+.pub-map-frame {
+    border: 0;
+    border-radius: var(--pub-radius);
+    width: 100%;
+    min-height: 320px;
+}
+
+/* ==== Client portal / auth card ==== */
+.pub-auth-wrapper {
+    min-height: calc(100vh - 260px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--pub-navy), var(--pub-navy-deep));
+    padding: 3.5rem 1rem;
+}
+
+.pub-auth-card {
+    background: #fff;
+    border-radius: 1.25rem;
+    max-width: 420px;
+    width: 100%;
+    padding: 2.25rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.pub-auth-card .pub-auth-logo {
+    height: 80px;
+    width: auto;
+}
+
+.pub-auth-card h4 {
+    font-weight: 800;
+    color: var(--pub-navy);
+}
+
+/* ==== Footer ==== */
+.pub-footer {
+    background: var(--pub-navy-deep);
+    color: rgba(255, 255, 255, 0.75);
+    padding: 3.5rem 0 0;
+}
+
+.pub-footer h6 {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pub-footer a {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+}
+
+.pub-footer a:hover {
+    color: var(--pub-gold);
+}
+
+.pub-footer .pub-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2.5rem;
+    padding: 1.25rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==== Detail sections (lawyer/story show pages) ==== */
+.pub-detail-card {
+    background: #fff;
+    border: 1px solid var(--pub-border);
+    border-radius: var(--pub-radius);
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.pub-detail-card h6 {
+    font-weight: 700;
+    color: var(--pub-navy);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pub-detail-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+}
+
+.pub-detail-card ul li {
+    padding-inline-start: 1.4rem;
+    position: relative;
+    margin-bottom: 0.6rem;
+    color: var(--pub-ink);
+    font-size: 0.92rem;
+}
+
+.pub-detail-card ul li::before {
+    content: '\2713';
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--pub-gold);
+    font-weight: 700;
+}
+
+/* ==== Page loader override (public pages reuse the same component) ==== */
+.pub-body .page-loader {
+    background-color: var(--pub-navy);
+}

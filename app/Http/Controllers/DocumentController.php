@@ -20,6 +20,13 @@ class DocumentController extends Controller
         return back()->with('success', __('app.messages.created'));
     }
 
+    public function toggleVisibility(Media $media): RedirectResponse
+    {
+        $this->documents->toggleVisibility($media);
+
+        return back()->with('success', __('app.messages.updated'));
+    }
+
     public function destroy(Media $media): RedirectResponse
     {
         $this->documents->delete($media);

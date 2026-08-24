@@ -11,7 +11,12 @@ use App\Models\Court;
 use App\Models\Expense;
 use App\Models\Invoice;
 use App\Models\Payment;
+use App\Models\PracticeArea;
+use App\Models\SiteSetting;
+use App\Models\SuccessStory;
 use App\Models\Task;
+use App\Models\TeamMember;
+use App\Models\Testimonial;
 use App\Models\User;
 use App\Repositories\Contracts\ActivityLogRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -31,6 +36,11 @@ class ActivityLogService
         Branch::class => 'branch',
         Court::class => 'court',
         CaseType::class => 'case_type',
+        SiteSetting::class => 'site_setting',
+        PracticeArea::class => 'practice_area',
+        TeamMember::class => 'team_member',
+        Testimonial::class => 'testimonial',
+        SuccessStory::class => 'success_story',
     ];
 
     public function __construct(protected ActivityLogRepositoryInterface $logs)

@@ -25,23 +25,7 @@
             <div class="card">
                 <div class="card-header fw-semibold">{{ __('app.labels.documents') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('documents.store', ['client', $client->id]) }}" enctype="multipart/form-data" class="mb-3">
-                        @csrf
-                        <div class="input-group">
-                            <input type="file" name="file" class="form-control" required>
-                            <button class="btn btn-outline-primary" type="submit">{{ __('app.actions.upload') }}</button>
-                        </div>
-                    </form>
-                    <ul class="list-group list-group-flush">
-                        @forelse ($client->media as $media)
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="{{ $media->getUrl() }}" target="_blank">{{ $media->file_name }}</a>
-                                <x-delete-button :action="route('documents.destroy', $media)" />
-                            </li>
-                        @empty
-                            <li class="list-group-item text-secondary">{{ __('app.messages.no_results') }}</li>
-                        @endforelse
-                    </ul>
+                    <x-document-list :model="$client" type="client" />
                 </div>
             </div>
         </div>

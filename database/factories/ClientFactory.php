@@ -65,8 +65,8 @@ class ClientFactory extends Factory
             'name' => $name,
             'type' => $type,
             'phone' => '01'.fake()->randomElement([0, 1, 2, 5]).fake()->numerify('########'),
-            'email' => fake()->optional(0.6)->safeEmail(),
-            'national_id' => $type === 'individual' ? fake()->optional(0.7)->numerify('#############') : null,
+            'email' => fake()->unique()->safeEmail(),
+            'national_id' => fake()->unique()->numerify('#############'),
             'address' => $address,
             'notes' => fake()->optional(0.4)->randomElement(self::NOTES) ?? ['ar' => null, 'en' => null],
         ];

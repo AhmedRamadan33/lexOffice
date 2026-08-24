@@ -14,7 +14,17 @@ class DocumentService
     {
         $model = $this->resolveModel($type, $id);
 
-        return $model->addMediaFromRequest('file')->toMediaCollection('documents');
+        return $model->addMediaFromRequest('file')
+            ->withCustomProperties(['client_visible' => $request->boolean('client_visible')])
+            ->toMediaCollection('documents');
+    }
+
+    public function toggleVisibility(Media $media): Media
+    {
+        $media->setCustomProperty('client_visible', ! $media->getCustomProperty('client_visible', false));
+        $media->save();
+
+        return $media;
     }
 
     public function delete(Media $media): bool

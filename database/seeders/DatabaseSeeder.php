@@ -35,6 +35,11 @@ class DatabaseSeeder extends Seeder
             InvoiceSeeder::class,
             ExpenseSeeder::class,
             TaskSeeder::class,
+            SiteSettingSeeder::class,
+            PracticeAreaSeeder::class,
+            TeamMemberSeeder::class,
+            TestimonialSeeder::class,
+            SuccessStorySeeder::class,
         ]);
 
         Auth::logout();

@@ -12,7 +12,7 @@
                 <tr>
                     <th>{{ __('app.labels.name') }}</th>
                     <th>{{ __('app.nav.users') }}</th>
-                    <th class="text-end">{{ __('app.actions.edit') }}</th>
+                    <th class="text-end">{{ __('app.actions.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

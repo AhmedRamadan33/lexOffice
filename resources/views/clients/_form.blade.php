@@ -33,23 +33,26 @@
 
 <div class="row g-3">
     <div class="col-md-6">
-        <label class="form-label">{{ __('app.labels.type') }}</label>
-        <select name="type" class="form-select">
+        <label class="form-label">{{ __('app.labels.type') }} <span class="text-danger">*</span></label>
+        <select name="type" class="form-select" required>
             <option value="individual" @selected(old('type', $c?->type) === 'individual')>{{ __('app.labels.individual') }}</option>
             <option value="company" @selected(old('type', $c?->type) === 'company')>{{ __('app.labels.company') }}</option>
         </select>
     </div>
     <div class="col-md-6">
-        <label class="form-label">{{ __('app.labels.phone') }}</label>
-        <input type="text" name="phone" value="{{ old('phone', $c?->phone) }}" class="form-control">
+        <label class="form-label">{{ __('app.labels.phone') }} <span class="text-danger">*</span></label>
+        <input type="text" name="phone" value="{{ old('phone', $c?->phone) }}" class="form-control" required>
     </div>
     <div class="col-md-6">
-        <label class="form-label">{{ __('app.labels.email') }}</label>
-        <input type="email" name="email" value="{{ old('email', $c?->email) }}" class="form-control">
+        <label class="form-label">{{ __('app.labels.email') }} <span class="text-danger">*</span></label>
+        <input type="email" name="email" value="{{ old('email', $c?->email) }}" class="form-control" required>
     </div>
     <div class="col-md-6">
-        <label class="form-label">{{ __('app.labels.national_id') }}</label>
-        <input type="text" name="national_id" value="{{ old('national_id', $c?->national_id) }}" class="form-control">
+        <label class="form-label">{{ __('app.labels.national_id') }} <span class="text-danger">*</span></label>
+        <input type="text" name="national_id" value="{{ old('national_id', $c?->national_id) }}" class="form-control" required>
+        @if (! $c)
+            <div class="form-text">{{ __('app.labels.national_id_password_hint') }}</div>
+        @endif
     </div>
 </div>
 <div class="mt-4 d-flex gap-2">

@@ -34,7 +34,7 @@
                     <th>{{ __('app.labels.court') }}</th>
                     <th>{{ __('app.labels.assigned_lawyer') }}</th>
                     <th>{{ __('app.labels.status') }}</th>
-                    <th class="text-end">{{ __('app.actions.edit') }}</th>
+                    <th class="text-end">{{ __('app.actions.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

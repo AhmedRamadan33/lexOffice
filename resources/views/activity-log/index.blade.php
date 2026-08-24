@@ -37,7 +37,7 @@
                     <th>{{ __('app.activity_log.branch') }}</th>
                     <th>{{ __('app.activity_log.subject_type') }}</th>
                     <th>{{ __('app.activity_log.event') }}</th>
-                    <th class="text-end">{{ __('app.activity_log.details') }}</th>
+                    <th class="text-end">{{ __('app.actions.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

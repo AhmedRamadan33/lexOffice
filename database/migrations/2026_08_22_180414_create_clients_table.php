@@ -16,9 +16,11 @@ return new class extends Migration
             $table->foreignId('branch_id')->constrained()->cascadeOnDelete();
             $table->json('name');
             $table->enum('type', ['individual', 'company'])->default('individual');
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('national_id')->nullable();
+            $table->string('phone');
+            $table->string('email')->unique();
+            $table->string('national_id')->unique();
+            $table->string('password')->nullable();
+            $table->rememberToken();
             $table->json('address')->nullable();
             $table->json('notes')->nullable();
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();

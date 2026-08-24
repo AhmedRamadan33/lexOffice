@@ -21,6 +21,17 @@
         </div>
     @endif
 
+    @if (session('info'))
+        <div class="toast align-items-center text-bg-info border-0 shadow" role="alert" data-bs-delay="5000" id="toast-info">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-info-circle-fill me-2"></i>{{ session('info') }}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="toast align-items-center text-bg-warning border-0 shadow" role="alert" data-bs-delay="5000" id="toast-warning">
             <div class="d-flex">

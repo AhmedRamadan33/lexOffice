@@ -14,7 +14,7 @@
                     <th>{{ __('app.labels.category') }}</th>
                     <th class="text-end">{{ __('app.labels.amount') }}</th>
                     <th>{{ __('app.labels.description') }}</th>
-                    <th class="text-end">{{ __('app.actions.edit') }}</th>
+                    <th class="text-end">{{ __('app.actions.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

@@ -20,7 +20,7 @@
                     <th>{{ __('app.labels.phone') }}</th>
                     <th>{{ __('app.nav.users') }}</th>
                     <th>{{ __('app.labels.is_main') }}</th>
-                    <th class="text-end">{{ __('app.actions.edit') }}</th>
+                    <th class="text-end">{{ __('app.actions.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

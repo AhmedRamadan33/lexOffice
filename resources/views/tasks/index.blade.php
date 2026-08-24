@@ -35,7 +35,7 @@
                     <th>{{ __('app.labels.due_date_short') }}</th>
                     <th>{{ __('app.labels.priority') }}</th>
                     <th>{{ __('app.labels.status') }}</th>
-                    <th class="text-end">{{ __('app.actions.edit') }}</th>
+                    <th class="text-end">{{ __('app.actions.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

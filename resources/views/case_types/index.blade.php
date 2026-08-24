@@ -20,7 +20,7 @@
                 <tr>
                     <th>{{ __('app.labels.name') }}</th>
                     <th>{{ __('app.labels.is_active') }}</th>
-                    <th class="text-end">{{ __('app.actions.edit') }}</th>
+                    <th class="text-end">{{ __('app.actions.actions') }}</th>
                 </tr>
             </thead>
             <tbody>

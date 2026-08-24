@@ -17,6 +17,14 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->statefulApi();
+
+        $middleware->redirectGuestsTo(fn ($request) => $request->is('portal*')
+            ? route('public.client-portal')
+            : route('login'));
+
+        $middleware->redirectUsersTo(fn ($request) => $request->is('portal*') || $request->is('client-portal')
+            ? route('portal.dashboard')
+            : route('dashboard'));
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
