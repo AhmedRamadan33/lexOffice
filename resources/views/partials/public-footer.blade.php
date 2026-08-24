@@ -32,7 +32,7 @@
                 <ul class="list-unstyled d-flex flex-column gap-2">
                     <li><a href="{{ route('public.about') }}">{{ __('app.public.nav.about') }}</a></li>
                     <li><a href="{{ route('public.services') }}">{{ __('app.public.nav.services') }}</a></li>
-                    <li><a href="{{ route('public.lawyers') }}">{{ __('app.public.nav.lawyers') }}</a></li>
+                    <li><a href="{{ route('public.team') }}">{{ __('app.public.nav.team') }}</a></li>
                     <li><a href="{{ route('public.stories') }}">{{ __('app.public.nav.stories') }}</a></li>
                 </ul>
             </div>

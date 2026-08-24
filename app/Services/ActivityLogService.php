@@ -15,7 +15,6 @@ use App\Models\PracticeArea;
 use App\Models\SiteSetting;
 use App\Models\SuccessStory;
 use App\Models\Task;
-use App\Models\TeamMember;
 use App\Models\Testimonial;
 use App\Models\User;
 use App\Repositories\Contracts\ActivityLogRepositoryInterface;
@@ -38,7 +37,6 @@ class ActivityLogService
         CaseType::class => 'case_type',
         SiteSetting::class => 'site_setting',
         PracticeArea::class => 'practice_area',
-        TeamMember::class => 'team_member',
         Testimonial::class => 'testimonial',
         SuccessStory::class => 'success_story',
     ];

@@ -13,7 +13,7 @@ class SuccessStory extends Model implements HasMedia
 {
     use HasTranslations, InteractsWithMedia, LogsActivity;
 
-    protected $translatable = ['title', 'excerpt', 'body'];
+    protected $translatable = ['title', 'excerpt', 'body', 'category'];
 
     protected $fillable = [
         'title',

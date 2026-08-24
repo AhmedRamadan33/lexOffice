@@ -100,11 +100,6 @@
         </a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('team-members.index') }}" class="nav-link {{ request()->routeIs('team-members.*') ? 'active' : '' }}">
-            <span class="nav-icon"><i class="bi bi-person-video3"></i></span>{{ __('app.nav.team_members') }}
-        </a>
-    </li>
-    <li class="nav-item">
         <a href="{{ route('testimonials.index') }}" class="nav-link {{ request()->routeIs('testimonials.*') ? 'active' : '' }}">
             <span class="nav-icon"><i class="bi bi-chat-quote-fill"></i></span>{{ __('app.nav.testimonials') }}
         </a>

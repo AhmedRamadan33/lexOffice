@@ -37,7 +37,6 @@ class DatabaseSeeder extends Seeder
             TaskSeeder::class,
             SiteSettingSeeder::class,
             PracticeAreaSeeder::class,
-            TeamMemberSeeder::class,
             TestimonialSeeder::class,
             SuccessStorySeeder::class,
         ]);

@@ -17,6 +17,10 @@
             <input type="text" name="title[ar]" value="{{ old('title.ar', $s?->getTranslationWithoutFallback('title', 'ar')) }}" class="form-control" required>
         </div>
         <div class="mb-3">
+            <label class="form-label">{{ __('app.labels.category') }} ({{ __('app.labels.arabic') }})</label>
+            <input type="text" name="category[ar]" value="{{ old('category.ar', $s?->getTranslationWithoutFallback('category', 'ar')) }}" class="form-control">
+        </div>
+        <div class="mb-3">
             <label class="form-label">{{ __('app.labels.excerpt') }} ({{ __('app.labels.arabic') }})</label>
             <textarea name="excerpt[ar]" class="form-control" rows="2">{{ old('excerpt.ar', $s?->getTranslationWithoutFallback('excerpt', 'ar')) }}</textarea>
         </div>
@@ -31,6 +35,10 @@
             <input type="text" name="title[en]" value="{{ old('title.en', $s?->getTranslationWithoutFallback('title', 'en')) }}" class="form-control">
         </div>
         <div class="mb-3">
+            <label class="form-label">{{ __('app.labels.category') }} ({{ __('app.labels.english') }})</label>
+            <input type="text" name="category[en]" value="{{ old('category.en', $s?->getTranslationWithoutFallback('category', 'en')) }}" class="form-control">
+        </div>
+        <div class="mb-3">
             <label class="form-label">{{ __('app.labels.excerpt') }} ({{ __('app.labels.english') }})</label>
             <textarea name="excerpt[en]" class="form-control" rows="2">{{ old('excerpt.en', $s?->getTranslationWithoutFallback('excerpt', 'en')) }}</textarea>
         </div>
@@ -42,15 +50,11 @@
 </x-language-tabs>
 
 <div class="row g-3">
-    <div class="col-md-4">
-        <label class="form-label">{{ __('app.labels.category') }}</label>
-        <input type="text" name="category" value="{{ old('category', $s?->category) }}" class="form-control">
-    </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <label class="form-label">{{ __('app.labels.story_date') }}</label>
         <input type="date" name="story_date" value="{{ old('story_date', $s?->story_date?->format('Y-m-d')) }}" class="form-control">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <label class="form-label">{{ __('app.labels.sort_order') }}</label>
         <input type="number" name="sort_order" value="{{ old('sort_order', $s?->sort_order ?? 0) }}" class="form-control" min="0">
     </div>

@@ -302,42 +302,54 @@ a {
     margin-bottom: 1.5rem;
 }
 
-/* ==== Lawyer / team cards ==== */
-.pub-lawyer-card {
-    background: #fff;
-    border: 1px solid var(--pub-border);
+/* ==== Team cards (photo-overlay caption style) ==== */
+.pub-team-card {
+    position: relative;
+    display: block;
     border-radius: var(--pub-radius);
     overflow: hidden;
-    height: 100%;
+    aspect-ratio: 3 / 4;
+    background: var(--pub-navy);
     transition: transform 0.15s, box-shadow 0.15s;
 }
 
-.pub-lawyer-card:hover {
+.pub-team-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(15, 27, 51, 0.1);
+    box-shadow: 0 12px 28px rgba(15, 27, 51, 0.18);
 }
 
-.pub-lawyer-card .pub-lawyer-photo {
-    aspect-ratio: 1 / 1;
+.pub-team-card .pub-team-photo {
+    position: absolute;
+    inset: 0;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    background: var(--pub-navy);
 }
 
-.pub-lawyer-card .pub-lawyer-body {
-    padding: 1.1rem 1.25rem 1.35rem;
+.pub-team-card .pub-avatar-placeholder {
+    position: absolute;
+    inset: 0;
 }
 
-.pub-lawyer-card h6 {
+.pub-team-card .pub-team-overlay {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 1.5rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(10, 20, 40, 0.92), rgba(10, 20, 40, 0));
+    color: #fff;
+}
+
+.pub-team-card .pub-team-overlay h6 {
     font-weight: 700;
-    color: var(--pub-navy);
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.1rem;
+    color: #fff;
 }
 
-.pub-lawyer-card .pub-lawyer-title {
-    color: var(--pub-gold);
-    font-size: 0.82rem;
-    font-weight: 700;
+.pub-team-card .pub-team-title {
+    color: var(--pub-gold-soft);
+    font-size: 0.78rem;
+    font-weight: 600;
 }
 
 .pub-avatar-placeholder {

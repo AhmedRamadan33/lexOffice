@@ -20,7 +20,7 @@
                     <a class="nav-link {{ request()->routeIs('public.services') ? 'active' : '' }}" href="{{ route('public.services') }}">{{ __('app.public.nav.services') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('public.lawyers*') ? 'active' : '' }}" href="{{ route('public.lawyers') }}">{{ __('app.public.nav.lawyers') }}</a>
+                    <a class="nav-link {{ request()->routeIs('public.team*') ? 'active' : '' }}" href="{{ route('public.team') }}">{{ __('app.public.nav.team') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('public.stories*') ? 'active' : '' }}" href="{{ route('public.stories') }}">{{ __('app.public.nav.stories') }}</a>

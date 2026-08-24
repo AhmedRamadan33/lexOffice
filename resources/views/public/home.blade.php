@@ -68,29 +68,29 @@
         <section class="pub-section pub-section-alt">
             <div class="container">
                 <div class="pub-section-header">
-                    <div class="pub-eyebrow">{{ __('app.public.home.lawyers_eyebrow') }}</div>
-                    <h2>{{ __('app.public.home.lawyers_title') }}</h2>
+                    <div class="pub-eyebrow">{{ __('app.public.home.team_eyebrow') }}</div>
+                    <h2>{{ __('app.public.home.team_title') }}</h2>
                     <div class="pub-divider"></div>
                 </div>
                 <div class="row g-4">
-                    @foreach ($teamMembers as $teamMember)
+                    @foreach ($teamMembers as $member)
                         <div class="col-6 col-lg-3">
-                            <a href="{{ route('public.lawyers.show', $teamMember) }}" class="pub-lawyer-card d-block text-decoration-none">
-                                @if ($teamMember->hasMedia('photo'))
-                                    <img src="{{ $teamMember->getFirstMediaUrl('photo') }}" class="pub-lawyer-photo" alt="{{ $teamMember->name }}">
+                            <a href="{{ route('public.team.show', $member) }}" class="pub-team-card d-block text-decoration-none">
+                                @if ($member->hasMedia('photo'))
+                                    <img src="{{ $member->getFirstMediaUrl('photo') }}" class="pub-team-photo" alt="{{ $member->name }}">
                                 @else
-                                    <div class="pub-avatar-placeholder">{{ mb_substr($teamMember->name, 0, 1) }}</div>
+                                    <div class="pub-avatar-placeholder">{{ mb_substr($member->name, 0, 1) }}</div>
                                 @endif
-                                <div class="pub-lawyer-body">
-                                    <h6>{{ $teamMember->name }}</h6>
-                                    <div class="pub-lawyer-title">{{ $teamMember->title }}</div>
+                                <div class="pub-team-overlay">
+                                    <h6>{{ $member->name }}</h6>
+                                    <div class="pub-team-title">{{ $member->title }}</div>
                                 </div>
                             </a>
                         </div>
                     @endforeach
                 </div>
                 <div class="text-center mt-4">
-                    <a href="{{ route('public.lawyers') }}" class="pub-btn-gold">{{ __('app.public.home.view_all_lawyers') }}</a>
+                    <a href="{{ route('public.team') }}" class="pub-btn-gold">{{ __('app.public.home.view_all_team') }}</a>
                 </div>
             </div>
         </section>

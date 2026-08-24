@@ -23,7 +23,11 @@ class SuccessStoryRepository extends BaseRepository implements SuccessStoryRepos
                         ->orWhere('title->en', 'like', "%{$search}%");
                 });
             })
-            ->when($filters['category'] ?? null, fn ($q, $category) => $q->where('category', $category))
+            ->when($filters['category'] ?? null, function ($q, $category) {
+                $q->where(function ($q) use ($category) {
+                    $q->where('category->ar', $category)->orWhere('category->en', $category);
+                });
+            })
             ->when(array_key_exists('is_active', $filters) && $filters['is_active'] !== null, fn ($q) => $q->where('is_active', $filters['is_active']))
             ->orderByDesc('story_date')
             ->orderBy('sort_order')

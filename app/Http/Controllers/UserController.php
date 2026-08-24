@@ -36,7 +36,7 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $this->users->create($request->validated());
+        $this->users->create($request->validated(), $request);
 
         return redirect()->route('users.index')->with('success', __('app.messages.created'));
     }
@@ -53,7 +53,7 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        $this->users->update($user, $request->validated());
+        $this->users->update($user, $request->validated(), $request);
 
         return redirect()->route('users.index')->with('success', __('app.messages.updated'));
     }

@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Public\StoreContactMessageRequest;
 use App\Models\SiteSetting;
-use App\Models\TeamMember;
 use App\Models\SuccessStory;
+use App\Models\User;
 use App\Services\ContactMessageService;
 use App\Services\PracticeAreaService;
 use App\Services\SuccessStoryService;
-use App\Services\TeamMemberService;
 use App\Services\TestimonialService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,9 +16,10 @@ use Illuminate\View\View;
 
 class PublicController extends Controller
 {
+    private const TEAM_CATEGORIES = ['partners', 'lawyers', 'admin_staff'];
+
     public function __construct(
         protected PracticeAreaService $practiceAreas,
-        protected TeamMemberService $teamMembers,
         protected TestimonialService $testimonials,
         protected SuccessStoryService $stories,
         protected ContactMessageService $messages,
@@ -31,7 +31,7 @@ class PublicController extends Controller
         return view('public.home', [
             'setting' => SiteSetting::current(),
             'practiceAreas' => $this->practiceAreas->listActive()->take(6),
-            'teamMembers' => $this->teamMembers->listActive()->where('is_featured', true)->take(4),
+            'teamMembers' => User::where('is_team_visible', true)->orderBy('sort_order')->take(4)->get(),
             'testimonials' => $this->testimonials->listActive(),
             'stories' => $this->stories->listActive()->take(3),
         ]);
@@ -52,28 +52,40 @@ class PublicController extends Controller
         ]);
     }
 
-    public function lawyers(Request $request): View
+    public function team(Request $request): View
     {
-        $category = $request->query('category');
-        $teamMembers = $this->teamMembers->listActive();
+        $activeCategory = $request->query('category');
 
-        if ($category) {
-            $teamMembers = $teamMembers->where('category', $category);
-        }
+        $grouped = User::where('is_team_visible', true)
+            ->orderBy('sort_order')
+            ->get()
+            ->groupBy('category');
 
-        return view('public.lawyers.index', [
+        $availableCategories = collect(self::TEAM_CATEGORIES)->filter(fn ($cat) => $grouped->has($cat))->values();
+
+        $sections = $availableCategories
+            ->when($activeCategory, fn ($cats) => $cats->filter(fn ($cat) => $cat === $activeCategory))
+            ->map(fn ($cat) => [
+                'key' => $cat,
+                'label' => __('app.public.team.categories.'.$cat),
+                'members' => $grouped->get($cat),
+            ]);
+
+        return view('public.team.index', [
             'setting' => SiteSetting::current(),
-            'teamMembers' => $teamMembers,
-            'categories' => $this->teamMembers->listActive()->pluck('category')->filter()->unique()->values(),
-            'activeCategory' => $category,
+            'sections' => $sections,
+            'availableCategories' => $availableCategories,
+            'activeCategory' => $activeCategory,
         ]);
     }
 
-    public function lawyerShow(TeamMember $teamMember): View
+    public function teamShow(User $user): View
     {
-        return view('public.lawyers.show', [
+        abort_unless($user->is_team_visible, 404);
+
+        return view('public.team.show', [
             'setting' => SiteSetting::current(),
-            'teamMember' => $teamMember,
+            'member' => $user,
         ]);
     }
 

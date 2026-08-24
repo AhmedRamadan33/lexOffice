@@ -13,7 +13,7 @@ return new class extends Migration
             $table->json('title');
             $table->json('excerpt')->nullable();
             $table->json('body')->nullable();
-            $table->string('category')->nullable();
+            $table->json('category')->nullable();
             $table->date('story_date')->nullable();
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);

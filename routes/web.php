@@ -24,7 +24,6 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\SuccessStoryController;
 use App\Http\Controllers\TaskController;
-use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +33,8 @@ Route::post('/lang/{locale}', LocaleController::class)->name('locale.update');
 Route::get('/', [PublicController::class, 'home'])->name('public.home');
 Route::get('/about', [PublicController::class, 'about'])->name('public.about');
 Route::get('/services', [PublicController::class, 'services'])->name('public.services');
-Route::get('/lawyers', [PublicController::class, 'lawyers'])->name('public.lawyers');
-Route::get('/lawyers/{teamMember}', [PublicController::class, 'lawyerShow'])->name('public.lawyers.show');
+Route::get('/team', [PublicController::class, 'team'])->name('public.team');
+Route::get('/team/{user}', [PublicController::class, 'teamShow'])->name('public.team.show');
 Route::get('/success-stories', [PublicController::class, 'stories'])->name('public.stories');
 Route::get('/success-stories/{story}', [PublicController::class, 'storyShow'])->name('public.stories.show');
 Route::get('/contact', [PublicController::class, 'contact'])->name('public.contact');
@@ -120,7 +119,6 @@ Route::middleware('auth')->group(function () {
         Route::put('/site-settings', [SiteSettingController::class, 'update'])->name('site-settings.update');
 
         Route::resource('practice-areas', PracticeAreaController::class)->except('show');
-        Route::resource('team-members', TeamMemberController::class)->except('show');
         Route::resource('testimonials', TestimonialController::class)->except('show');
         Route::resource('success-stories', SuccessStoryController::class)->except('show');
 
