@@ -18,6 +18,7 @@ class DemoUserSeeder extends Seeder
                 'email' => 'lawyer1@lexoffice.test',
                 'role' => 'Lawyer',
                 'category' => 'lawyers',
+                'photo' => 'man1.jpg',
                 'title' => ['ar' => 'محامٍ أول - قضايا جنائية', 'en' => 'Senior Lawyer - Criminal Cases'],
                 'bio' => ['ar' => 'يتولى الدفاع في القضايا الجنائية المعقدة، ويتمتع بسجل حافل من الأحكام الناجحة لصالح موكليه.', 'en' => 'Handles defense in complex criminal cases, with a strong track record of successful rulings for his clients.'],
                 'specialties' => ["ar" => "الدفاع الجنائي\nاستئناف الأحكام\nالقضايا الاقتصادية", "en" => "Criminal Defense\nSentence Appeals\nEconomic Crime Cases"],
@@ -29,6 +30,7 @@ class DemoUserSeeder extends Seeder
                 'email' => 'lawyer2@lexoffice.test',
                 'role' => 'Lawyer',
                 'category' => 'lawyers',
+                'photo' => 'women1.jpg',
                 'title' => ['ar' => 'محامية أول - قانون العمل', 'en' => 'Senior Lawyer - Labor Law'],
                 'bio' => ['ar' => 'تقدم للشركات والأفراد استشارات قانونية شاملة في مجال علاقات العمل وحل النزاعات العمالية.', 'en' => 'Provides comprehensive legal consultation to companies and individuals on employment relations and labor dispute resolution.'],
                 'specialties' => ["ar" => "عقود العمل\nالفصل التعسفي\nالتحكيم العمالي", "en" => "Employment Contracts\nWrongful Termination\nLabor Arbitration"],
@@ -40,6 +42,7 @@ class DemoUserSeeder extends Seeder
                 'email' => 'secretary@lexoffice.test',
                 'role' => 'Secretary',
                 'category' => 'admin_staff',
+                'photo' => 'man2.jpg',
                 'title' => ['ar' => 'سكرتير تنفيذي', 'en' => 'Executive Secretary'],
                 'bio' => ['ar' => 'يتولى تنظيم مواعيد الجلسات ومتابعة المراسلات الإدارية بين المكتب وعملائه.', 'en' => "Manages hearing schedules and follows up on the firm's administrative correspondence with its clients."],
                 'specialties' => null,
@@ -51,6 +54,7 @@ class DemoUserSeeder extends Seeder
                 'email' => 'accountant@lexoffice.test',
                 'role' => 'Accountant',
                 'category' => 'admin_staff',
+                'photo' => 'women2.jpg',
                 'title' => ['ar' => 'محاسبة أولى', 'en' => 'Senior Accountant'],
                 'bio' => ['ar' => 'مسؤولة عن الشؤون المالية للمكتب ومتابعة الفواتير والمدفوعات مع العملاء.', 'en' => "Responsible for the firm's financial affairs and following up on client invoices and payments."],
                 'specialties' => null,
@@ -62,6 +66,7 @@ class DemoUserSeeder extends Seeder
                 'email' => 'partner1@lexoffice.test',
                 'role' => 'Lawyer',
                 'category' => 'partners',
+                'photo' => 'man3.jpg',
                 'title' => ['ar' => 'شريك مؤسس - قانون تجاري', 'en' => 'Founding Partner - Commercial Law'],
                 'bio' => ['ar' => 'يتمتع أحمد بخبرة تزيد عن 12 عاماً في مجال القانون التجاري وتأسيس الشركات، وقاد فريق المكتب في العديد من صفقات الاستحواذ الكبرى.', 'en' => "Ahmed has over 12 years of experience in commercial law and company formation, leading the firm's team through numerous major acquisition deals."],
                 'specialties' => ["ar" => "تأسيس الشركات\nالعقود التجارية\nالاندماج والاستحواذ", "en" => "Company Formation\nCommercial Contracts\nMergers & Acquisitions"],
@@ -73,6 +78,7 @@ class DemoUserSeeder extends Seeder
                 'email' => 'partner2@lexoffice.test',
                 'role' => 'Lawyer',
                 'category' => 'partners',
+                'photo' => 'women3.jpg',
                 'title' => ['ar' => 'شريكة - أحوال شخصية', 'en' => 'Partner - Personal Status'],
                 'bio' => ['ar' => 'متخصصة في قضايا الأسرة والأحوال الشخصية، وتُعرف بحرصها الشديد على مصلحة الأطفال في قضايا الحضانة.', 'en' => 'Specializes in family and personal-status cases, known for her strong focus on the best interests of children in custody matters.'],
                 'specialties' => ["ar" => "قضايا الطلاق والحضانة\nالنفقة\nالميراث", "en" => "Divorce & Custody Cases\nAlimony\nInheritance"],
@@ -97,6 +103,12 @@ class DemoUserSeeder extends Seeder
             ]);
 
             $user->assignRole($data['role']);
+
+            if (! $user->hasMedia('photo') && file_exists(public_path('assets/'.$data['photo']))) {
+                $user->addMedia(public_path('assets/'.$data['photo']))
+                    ->preservingOriginal()
+                    ->toMediaCollection('photo');
+            }
         }
     }
 }

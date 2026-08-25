@@ -9,7 +9,9 @@ class SiteSettingSeeder extends Seeder
 {
     public function run(): void
     {
-        SiteSetting::current()->update([
+        $setting = SiteSetting::current();
+
+        $setting->update([
             'hero_title' => ['ar' => 'قضاياك القانونية.. التزامنا واحترافيتنا', 'en' => 'Your Legal Matters, Our Commitment & Expertise'],
             'hero_subtitle' => [
                 'ar' => 'نقدم حلولاً قانونية متكاملة للأفراد والشركات بخبرة عالية الجودة وبراعة في إدارة القضايا واحترام كامل لحقوق عملائنا.',
@@ -69,5 +71,17 @@ class SiteSettingSeeder extends Seeder
             ],
             'footer_copyright' => ['ar' => 'جميع الحقوق محفوظة © '.date('Y').' مكتب LexOffice', 'en' => 'All rights reserved © '.date('Y').' LexOffice'],
         ]);
+
+        if (! $setting->hasMedia('hero_image') && file_exists(public_path('assets/hero_image.webp'))) {
+            $setting->addMedia(public_path('assets/hero_image.webp'))
+                ->preservingOriginal()
+                ->toMediaCollection('hero_image');
+        }
+
+        if (! $setting->hasMedia('about_image') && file_exists(public_path('assets/about_image.png'))) {
+            $setting->addMedia(public_path('assets/about_image.png'))
+                ->preservingOriginal()
+                ->toMediaCollection('about_image');
+        }
     }
 }

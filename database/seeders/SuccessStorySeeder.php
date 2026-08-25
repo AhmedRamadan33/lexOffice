@@ -41,10 +41,16 @@ class SuccessStorySeeder extends Seeder
         ];
 
         foreach ($stories as $i => $story) {
-            SuccessStory::firstOrCreate(
+            $successStory = SuccessStory::firstOrCreate(
                 ['title->ar' => $story['title']['ar']],
                 [...$story, 'sort_order' => $i, 'is_active' => true]
             );
+
+            if (! $successStory->hasMedia('image') && file_exists(public_path('assets/success-stories.avif'))) {
+                $successStory->addMedia(public_path('assets/success-stories.avif'))
+                    ->preservingOriginal()
+                    ->toMediaCollection('image');
+            }
         }
     }
 }
