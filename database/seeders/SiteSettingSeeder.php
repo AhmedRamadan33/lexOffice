@@ -53,10 +53,10 @@ class SiteSettingSeeder extends Seeder
                 'en' => 'Over 15 years of experience in litigation and legal consultation for both individuals and businesses.',
             ],
 
-            'contact_phone_primary' => '+966 11 234 5678',
-            'contact_phone_secondary' => '+966 50 123 4567',
+            'contact_phone_primary' => '+20 2 2735 4210',
+            'contact_phone_secondary' => '+20 100 123 4567',
             'contact_email' => 'info@lexoffice.example',
-            'contact_address' => ['ar' => 'المملكة العربية السعودية، الرياض، طريق الملك فهد', 'en' => 'King Fahd Road, Riyadh, Saudi Arabia'],
+            'contact_address' => ['ar' => 'جمهورية مصر العربية، القاهرة، شارع التحرير، وسط البلد', 'en' => 'Tahrir Street, Downtown, Cairo, Egypt'],
             'contact_working_hours' => ['ar' => 'الأحد - الخميس: 9 صباحاً - 5 مساءً', 'en' => 'Sunday - Thursday: 9 AM - 5 PM'],
             'contact_map_embed_url' => null,
             'facebook_url' => null,

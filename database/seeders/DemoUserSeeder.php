@@ -34,7 +34,7 @@ class DemoUserSeeder extends Seeder
                 'title' => ['ar' => 'محامية أول - قانون العمل', 'en' => 'Senior Lawyer - Labor Law'],
                 'bio' => ['ar' => 'تقدم للشركات والأفراد استشارات قانونية شاملة في مجال علاقات العمل وحل النزاعات العمالية.', 'en' => 'Provides comprehensive legal consultation to companies and individuals on employment relations and labor dispute resolution.'],
                 'specialties' => ["ar" => "عقود العمل\nالفصل التعسفي\nالتحكيم العمالي", "en" => "Employment Contracts\nWrongful Termination\nLabor Arbitration"],
-                'education' => ["ar" => "بكالوريوس الحقوق - جامعة الملك عبدالعزيز", "en" => "LL.B. - King Abdulaziz University"],
+                'education' => ["ar" => "بكالوريوس الحقوق - جامعة الإسكندرية", "en" => "LL.B. - Alexandria University"],
                 'experience' => ["ar" => "مستشارة موارد بشرية وقانونية (2019-2023)", "en" => "HR & Legal Consultant (2019-2023)"],
             ],
             [
@@ -70,11 +70,11 @@ class DemoUserSeeder extends Seeder
                 'title' => ['ar' => 'شريك مؤسس - قانون تجاري', 'en' => 'Founding Partner - Commercial Law'],
                 'bio' => ['ar' => 'يتمتع أحمد بخبرة تزيد عن 12 عاماً في مجال القانون التجاري وتأسيس الشركات، وقاد فريق المكتب في العديد من صفقات الاستحواذ الكبرى.', 'en' => "Ahmed has over 12 years of experience in commercial law and company formation, leading the firm's team through numerous major acquisition deals."],
                 'specialties' => ["ar" => "تأسيس الشركات\nالعقود التجارية\nالاندماج والاستحواذ", "en" => "Company Formation\nCommercial Contracts\nMergers & Acquisitions"],
-                'education' => ["ar" => "ماجستير في القانون التجاري - جامعة الملك سعود\nبكالوريوس الحقوق - جامعة القاهرة", "en" => "LL.M. in Commercial Law - King Saud University\nLL.B. - Cairo University"],
+                'education' => ["ar" => "ماجستير في القانون التجاري - الجامعة الأمريكية بالقاهرة\nبكالوريوس الحقوق - جامعة القاهرة", "en" => "LL.M. in Commercial Law - American University in Cairo\nLL.B. - Cairo University"],
                 'experience' => ["ar" => "مستشار قانوني أول في شركة كبرى (2015-2020)\nمحاضر زائر في القانون التجاري", "en" => "Senior Legal Counsel at a major corporation (2015-2020)\nGuest lecturer in Commercial Law"],
             ],
             [
-                'name' => ['ar' => 'سارة العتيبي', 'en' => 'Sarah Al-Otaibi'],
+                'name' => ['ar' => 'سارة الشريف', 'en' => 'Sarah El-Sherif'],
                 'email' => 'partner2@lexoffice.test',
                 'role' => 'Lawyer',
                 'category' => 'partners',

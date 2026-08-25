@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use App\Models\Task;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 class TaskDueNotification extends Notification
@@ -16,7 +17,18 @@ class TaskDueNotification extends Notification
 
     public function via($notifiable): array
     {
-        return ['database'];
+        return $notifiable->email ? ['database', 'mail'] : ['database'];
+    }
+
+    public function toMail($notifiable): MailMessage
+    {
+        return (new MailMessage)
+            ->subject(__('app.notifications.mail.task_due_subject', ['title' => $this->task->title]))
+            ->greeting(__('app.notifications.mail.greeting', ['name' => $notifiable->name]))
+            ->line(__('app.notifications.task_due', ['title' => $this->task->title]))
+            ->line(__('app.notifications.mail.due_date', ['date' => $this->task->due_date?->format('Y-m-d')]))
+            ->action(__('app.notifications.mail.view_task'), route('tasks.edit', $this->task))
+            ->line(__('app.notifications.mail.footer'));
     }
 
     public function toArray($notifiable): array

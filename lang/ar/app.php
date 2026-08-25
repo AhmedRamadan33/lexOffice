@@ -170,6 +170,16 @@ return [
         'upcoming_session' => 'جلسة غداً للقضية رقم :case_number',
         'task_due' => 'مهمة مستحقة غداً: :title',
         'empty' => 'لا توجد تنبيهات جديدة.',
+        'mail' => [
+            'greeting' => 'مرحباً :name،',
+            'upcoming_session_subject' => 'تذكير: جلسة غداً للقضية رقم :case_number',
+            'session_date' => 'تاريخ الجلسة: :date',
+            'view_case' => 'عرض القضية',
+            'task_due_subject' => 'تذكير: مهمة مستحقة غداً - :title',
+            'due_date' => 'تاريخ الاستحقاق: :date',
+            'view_task' => 'عرض المهمة',
+            'footer' => 'هذه رسالة تلقائية من نظام LexOffice.',
+        ],
     ],
 
     'activity_log' => [

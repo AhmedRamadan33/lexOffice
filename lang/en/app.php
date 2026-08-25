@@ -170,6 +170,16 @@ return [
         'upcoming_session' => 'Session tomorrow for case :case_number',
         'task_due' => 'Task due tomorrow: :title',
         'empty' => 'No new notifications.',
+        'mail' => [
+            'greeting' => 'Hello :name,',
+            'upcoming_session_subject' => 'Reminder: session tomorrow for case :case_number',
+            'session_date' => 'Session date: :date',
+            'view_case' => 'View Case',
+            'task_due_subject' => 'Reminder: task due tomorrow - :title',
+            'due_date' => 'Due date: :date',
+            'view_task' => 'View Task',
+            'footer' => 'This is an automated message from the LexOffice system.',
+        ],
     ],
 
     'activity_log' => [
