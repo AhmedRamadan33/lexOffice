@@ -56,12 +56,26 @@
                 </ul>
 
                 <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
-                    <form method="POST" action="{{ route('locale.update', app()->getLocale() === 'ar' ? 'en' : 'ar') }}">
+                    <form method="POST" id="portalLangForm" class="d-none">
                         @csrf
-                        <button type="submit" class="btn btn-sm pub-btn-outline-light">
-                            <i class="bi bi-translate"></i> {{ app()->getLocale() === 'ar' ? 'English' : 'العربية' }}
-                        </button>
                     </form>
+                    <div class="dropdown pub-lang-dropdown">
+                        <button type="button" class="pub-lang-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="{{ __('app.public.nav.language') }}">
+                            <x-flag-icon :code="app()->getLocale() === 'ar' ? 'eg' : 'gb'" />
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end pub-lang-menu">
+                            <li>
+                                <button type="button" class="dropdown-item" onclick="document.getElementById('portalLangForm').action='{{ route('locale.update', 'ar') }}'; document.getElementById('portalLangForm').submit();">
+                                    <x-flag-icon code="eg" />
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item" onclick="document.getElementById('portalLangForm').action='{{ route('locale.update', 'en') }}'; document.getElementById('portalLangForm').submit();">
+                                    <x-flag-icon code="gb" />
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
                     <form method="POST" action="{{ route('portal.logout') }}">
                         @csrf
                         <button type="submit" class="pub-btn-gold btn-sm">

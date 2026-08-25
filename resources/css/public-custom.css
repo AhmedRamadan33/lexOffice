@@ -90,19 +90,73 @@ a {
     border-color: #fff;
 }
 
+.pub-flag-icon {
+    width: 22px;
+    height: 15px;
+    border-radius: 2px;
+    display: block;
+}
+
+.pub-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+.pub-lang-toggle::after {
+    display: none;
+}
+
+.pub-lang-toggle:hover,
+.pub-lang-toggle:focus {
+    border-color: var(--pub-gold);
+    background: rgba(255, 255, 255, 0.05);
+    outline: none;
+}
+
+.pub-lang-menu {
+    min-width: auto;
+    padding: 0.35rem;
+    background: var(--pub-navy);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pub-lang-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.35rem;
+}
+
+.pub-lang-menu .dropdown-item:hover,
+.pub-lang-menu .dropdown-item:focus {
+    background: rgba(255, 255, 255, 0.08);
+}
+
 .pub-staff-login {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 0.85rem;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    font-weight: 600;
     text-decoration: none;
-    padding: 0.4rem 0.3rem;
-    transition: color 0.15s;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
 }
 
 .pub-staff-login:hover {
     color: var(--pub-gold);
+    border-color: var(--pub-gold);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* ==== Navbar ==== */
@@ -140,6 +194,13 @@ a {
     font-weight: 600;
     font-size: 0.92rem;
     padding: 0.5rem 0.9rem !important;
+    white-space: nowrap;
+}
+
+.pub-navbar .pub-btn-gold,
+.pub-navbar .pub-btn-outline-light,
+.pub-navbar .pub-staff-login {
+    white-space: nowrap;
 }
 
 .pub-navbar .nav-link:hover,

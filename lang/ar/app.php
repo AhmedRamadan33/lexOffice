@@ -259,6 +259,7 @@ return [
             'contact' => 'تواصل معنا',
             'client_portal' => 'بوابة العميل',
             'staff_login' => 'دخول الموظفين',
+            'language' => 'اللغة',
         ],
         'footer' => [
             'quick_links' => 'روابط سريعة',

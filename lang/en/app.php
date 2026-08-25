@@ -259,6 +259,7 @@ return [
             'contact' => 'Contact',
             'client_portal' => 'Client Portal',
             'staff_login' => 'Staff Login',
+            'language' => 'Language',
         ],
         'footer' => [
             'quick_links' => 'Quick Links',
